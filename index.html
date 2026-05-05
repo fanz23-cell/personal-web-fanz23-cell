@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fan Zhang | Robotics & AI Portfolio</title>
+  <meta
+    name="description"
+    content="Fan Zhang's personal website for robotics, autonomous systems, and human-centered AI research."
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#top">FZ</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#strengths">Strengths</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Robotics · Embodied AI · Human-Centered Systems</p>
+          <h1>Fan Zhang</h1>
+          <p class="hero-text">
+            I build autonomous systems that connect perception, planning, control,
+            and human preference. My work spans robot navigation, human-following
+            behavior, imitation learning, and structured reward modeling for
+            human-robot interaction.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View Projects</a>
+            <a class="button button-secondary" href="https://www.linkedin.com/in/fan-zhang-09b016373/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+          <ul class="hero-stats" aria-label="Highlights">
+            <li>
+              <strong>6</strong>
+              <span>core showcased projects</span>
+            </li>
+            <li>
+              <strong>4</strong>
+              <span>major focus areas</span>
+            </li>
+            <li>
+              <strong>1</strong>
+              <span>human-centered robotics story</span>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="profile-card">
+          <p class="profile-label">Current Focus</p>
+          <h2>Robotics engineer and AI researcher</h2>
+          <p>
+            Interested in autonomous driving, mobile robotics, robot learning,
+            and safe human-robot interaction.
+          </p>
+          <dl class="profile-list">
+            <div>
+              <dt>Keywords</dt>
+              <dd>ROS 2, navigation, reward modeling, imitation learning</dd>
+            </div>
+            <div>
+              <dt>Style</dt>
+              <dd>System-level thinking with strong algorithmic grounding</dd>
+            </div>
+            <div>
+              <dt>Goal</dt>
+              <dd>Industry roles or research opportunities in robotics and embodied AI</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2>Building robotics systems that work end to end</h2>
+        </div>
+        <div class="about-grid">
+          <p>
+            My project work centers on the full stack of autonomous behavior:
+            state estimation, motion planning, control, perception, and
+            interaction design. I like systems problems where success depends on
+            both algorithm quality and reliable integration.
+          </p>
+          <p>
+            Across these repositories, I repeatedly focus on one theme: making
+            robots act more intelligently in the real world, whether that means
+            navigating a map, following a person, learning from human takeover,
+            or selecting safer and more comfortable handover behaviors.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-heading">
+          <p class="eyebrow">Selected Work</p>
+          <h2>Projects drawn from my repository portfolio</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card featured">
+            <p class="project-tag">Featured System</p>
+            <h3>MuSHR Autonomous Driving Stack</h3>
+            <p>
+              Built a closed-loop autonomy pipeline for an Ackermann-steered car
+              using particle-filter localization, roadmap planning with Lazy A*,
+              and vehicle-aware path tracking through PID, Pure Pursuit, and MPC.
+            </p>
+            <ul class="chip-list">
+              <li>Localization</li>
+              <li>Planning</li>
+              <li>Control</li>
+              <li>Systems Integration</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <p class="project-tag">Human-Robot Interaction</p>
+            <h3>BuddyBot Human-Following Robot</h3>
+            <p>
+              Combined YOLO person tracking, MediaPipe pose estimation, action
+              classification, and an FSM controller to drive service-oriented
+              follow, approach, retreat, and platform-adjustment behaviors.
+            </p>
+            <ul class="chip-list">
+              <li>YOLO</li>
+              <li>MediaPipe</li>
+              <li>ROS 2</li>
+              <li>FSM</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <p class="project-tag">Robot Learning</p>
+            <h3>Selective DAgger with Human Takeover Signals</h3>
+            <p>
+              Improved a MetaWorld push policy by treating human takeover moments
+              as signals of risky states, then using a trained predictor to
+              trigger selective expert relabeling during DAgger.
+            </p>
+            <ul class="chip-list">
+              <li>Imitation Learning</li>
+              <li>Vision Policy</li>
+              <li>Human-in-the-Loop</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <p class="project-tag">Research Direction</p>
+            <h3>Structured Reward Modeling for Handover</h3>
+            <p>
+              Reframed robot handover as a human-preference problem by scoring
+              candidate behaviors with structured reward functions that enforce
+              safety gates while optimizing comfort.
+            </p>
+            <ul class="chip-list">
+              <li>Reward Modeling</li>
+              <li>Safety</li>
+              <li>Preference Learning</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <p class="project-tag">Mobile Robotics</p>
+            <h3>TurtleBot Mapping and Navigation</h3>
+            <p>
+              Created maps, localized the robot, and evaluated navigation with
+              multiple planner settings in ROS 2, connecting SLAM outputs to
+              autonomous goal-directed behavior.
+            </p>
+            <ul class="chip-list">
+              <li>SLAM</li>
+              <li>Nav2</li>
+              <li>A*</li>
+              <li>Dijkstra</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <p class="project-tag">Developer Tooling</p>
+            <h3>Map Annotation and Goal Interface</h3>
+            <p>
+              Implemented a ROS 2 pose annotation workflow that stores named
+              robot goals, reloads them from CSV, and visualizes saved targets in
+              Rviz using UI markers.
+            </p>
+            <ul class="chip-list">
+              <li>ROS 2</li>
+              <li>Rviz</li>
+              <li>UX for Robotics</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="strengths">
+        <div class="section-heading">
+          <p class="eyebrow">Strengths</p>
+          <h2>What I bring to robotics and AI teams</h2>
+        </div>
+
+        <div class="strength-grid">
+          <article class="strength-card">
+            <h3>System Integration</h3>
+            <p>
+              I connect independent modules into working autonomy pipelines
+              instead of stopping at isolated algorithm demos.
+            </p>
+          </article>
+
+          <article class="strength-card">
+            <h3>Human-Centered Design</h3>
+            <p>
+              I care about robot behavior from the human perspective, especially
+              safety, comfort, and interpretable interaction logic.
+            </p>
+          </article>
+
+          <article class="strength-card">
+            <h3>Learning + Control</h3>
+            <p>
+              My work spans both data-driven methods and classical robotics, which
+              helps me reason across modern embodied AI stacks.
+            </p>
+          </article>
+
+          <article class="strength-card">
+            <h3>Research Communication</h3>
+            <p>
+              I document problem framing, architecture, and design tradeoffs
+              clearly so projects remain understandable beyond the code.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section timeline-section">
+        <div class="section-heading">
+          <p class="eyebrow">Focus Areas</p>
+          <h2>A concise map of my technical interests</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-index">01</span>
+            <div>
+              <h3>Autonomous Navigation</h3>
+              <p>Localization, map-based planning, and path tracking for real robots.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-index">02</span>
+            <div>
+              <h3>Human-Robot Interaction</h3>
+              <p>Behavior design for robots that respond intelligently to people.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-index">03</span>
+            <div>
+              <h3>Robot Learning</h3>
+              <p>Imitation learning, human guidance, and selective data collection.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-index">04</span>
+            <div>
+              <h3>Safe Embodied AI</h3>
+              <p>Preference-aware reward design for safer, more acceptable robotic decisions.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="section-heading">
+          <p class="eyebrow">Contact</p>
+          <h2>Open to robotics, embodied AI, and research opportunities</h2>
+        </div>
+        <div class="contact-card">
+          <p>
+            This site was designed as a professional personal web for internship,
+            job-search, and graduate/research applications.
+          </p>
+          <div class="contact-links">
+            <a href="https://www.linkedin.com/in/fan-zhang-09b016373/" target="_blank" rel="noreferrer">LinkedIn Profile</a>
+            <a href="#top" id="scrollTopLink">Back to top</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
