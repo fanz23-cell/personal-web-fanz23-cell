@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TurtleBot Mapping and Navigation | Fan Zhang</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">FZ</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#strengths">Strengths</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="detail-page">
+      <section class="detail-hero">
+        <div>
+          <p class="eyebrow">Mobile Robotics</p>
+          <h1>Lab 5: Mapping and Navigation</h1>
+          <p class="hero-text">
+            This project explores map creation, localization, and navigation on TurtleBot, connecting SLAM,
+            map-based navigation, and planner comparison into one practical workflow.
+          </p>
+          <a class="inline-link" href="../README(2).md">Open Source README</a>
+        </div>
+        <aside class="detail-summary">
+          <h3>Learning Objectives</h3>
+          <ul>
+            <li>Create 2D environment maps</li>
+            <li>Use maps for autonomous navigation</li>
+            <li>Build intuition for navigation algorithms and planner choices</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Workflow</p>
+          <h2>From mapping to navigation evaluation</h2>
+        </div>
+        <ol>
+          <li>Run SLAM in the maze world and explore until the environment is mapped.</li>
+          <li>Save the map into a `maps` folder for later reuse.</li>
+          <li>Restart the system using the saved map and navigation stack.</li>
+          <li>Estimate the robot pose on the map and send navigation goals.</li>
+          <li>Compare planning behavior using both Dijkstra and A* on the real maze.</li>
+        </ol>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Deliverables</p>
+          <h2>What the project demonstrates</h2>
+        </div>
+        <div class="detail-grid">
+          <article class="meta-card">
+            <h3>Mapping</h3>
+            <p>
+              Producing a reusable maze map and understanding how environment exploration supports later navigation.
+            </p>
+          </article>
+          <article class="meta-card">
+            <h3>Localization</h3>
+            <p>
+              Using pose estimation tools to align the robot with the saved map before goal-directed movement.
+            </p>
+          </article>
+          <article class="meta-card">
+            <h3>Planner Comparison</h3>
+            <p>
+              Switching configuration to compare Dijkstra and A* behavior instead of treating navigation as a black box.
+            </p>
+          </article>
+          <article class="meta-card">
+            <h3>Real Robot Transfer</h3>
+            <p>
+              Extending the same workflow from simulation into the physical robot and real maze setup.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

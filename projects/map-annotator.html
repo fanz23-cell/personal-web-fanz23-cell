@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map Annotation and Goal Interface | Fan Zhang</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">FZ</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#strengths">Strengths</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="detail-page">
+      <section class="detail-hero">
+        <div>
+          <p class="eyebrow">Developer Tooling</p>
+          <h1>Lab 6: Saving and Sending Navigation Goals</h1>
+          <p class="hero-text">
+            This project focuses on building a custom ROS 2 interface for saving named poses in the map,
+            reloading them across runs, and sending navigation goals by semantic name.
+          </p>
+          <a class="inline-link" href="../README(1).md">Open Source README</a>
+        </div>
+        <aside class="detail-summary">
+          <h3>Main Features</h3>
+          <ul>
+            <li>List, save, overwrite, delete, and navigate to named poses</li>
+            <li>Persist pose data in CSV format</li>
+            <li>Publish pose arrays for visualization</li>
+            <li>Render saved goals as Rviz markers</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Map Annotator Node</p>
+          <h2>Terminal-driven pose management</h2>
+        </div>
+        <pre>commands:
+- list
+- save &lt;name&gt;
+- delete &lt;name&gt;
+- goto &lt;name&gt;
+- exit
+- help</pre>
+        <p>
+          The main node stores pose name, position, and orientation in the map frame, publishes those poses
+          continuously as a `PoseArray`, and saves them to CSV when the session exits.
+        </p>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Visualization</p>
+          <h2>Rviz markers as a lightweight robotics UI</h2>
+        </div>
+        <p>
+          A second node subscribes to the pose array and publishes markers or marker arrays into Rviz so that
+          the user can see saved navigation targets directly in the map frame.
+        </p>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Why It Matters</p>
+          <h2>Bridging robot spatial memory and user semantics</h2>
+        </div>
+        <p>
+          This project moves beyond raw coordinates by letting the user work with meaningful names such as rooms
+          or objects. It is a small but important step toward usable robot interfaces and task-level autonomy.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selective DAgger with Human Takeover | Fan Zhang</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">FZ</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#strengths">Strengths</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="detail-page">
+      <section class="detail-hero">
+        <div>
+          <p class="eyebrow">Robot Learning</p>
+          <h1>Human Takeover Guided Selective DAgger for MetaWorld Push-v3</h1>
+          <p class="hero-text">
+            This project improves a vision-based manipulation policy by treating human takeover annotations
+            as signals of risky states and using those signals to target expert relabeling during DAgger.
+          </p>
+          <a class="inline-link" href="../README(4).md">Open Source README</a>
+        </div>
+        <aside class="detail-summary">
+          <h3>Main Result</h3>
+          <ul>
+            <li>Base policy mean success: 0.393</li>
+            <li>Selective DAgger mean success: 0.647</li>
+            <li>Takeover labels were most valuable as a state-selection signal</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Project Pipeline</p>
+          <h2>From base policy to predictor-guided relabeling</h2>
+        </div>
+        <ol>
+          <li>Train a wrist-camera base policy on `push-v3`.</li>
+          <li>Collect rollout episodes from that policy.</li>
+          <li>Annotate risky or failed segments with human takeover intervals.</li>
+          <li>Train a takeover predictor from those labeled rollouts.</li>
+          <li>Use the predictor to trigger selective expert relabeling during DAgger.</li>
+          <li>Finetune the policy with original data plus targeted expert labels.</li>
+        </ol>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Key Idea</p>
+          <h2>Human takeover is more than extra demonstration data</h2>
+        </div>
+        <p>
+          Instead of using takeover moments only as added demonstrations, this project interprets them as
+          warnings that the policy has entered risky states. That turns human intervention into a supervision
+          signal for deciding where expert labels are most valuable.
+        </p>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Repository Structure</p>
+          <h2>Artifacts retained in the project</h2>
+        </div>
+        <pre>artifacts/
+  checkpoints/
+  summaries/
+assets/
+  figures/
+  videos/
+data/
+  human_takeover_rollouts/
+docs/
+  project_report.pdf
+scripts/
+  train_bc_wrist.py
+  collect_takeover_rollouts.py
+  annotate_takeovers.py
+  train_takeover_predictor.py
+  train_selective_dagger.py</pre>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

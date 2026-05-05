@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MuSHR Autonomous Driving Stack | Fan Zhang</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">FZ</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#strengths">Strengths</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="detail-page">
+      <section class="detail-hero">
+        <div>
+          <p class="eyebrow">Featured System</p>
+          <h1>MuSHR478: Autonomous Driving on the MuSHR Platform</h1>
+          <p class="hero-text">
+            This project builds a full autonomous driving stack for an Ackermann-steered MuSHR car.
+            It integrates localization, planning, and control into one closed-loop navigation system
+            that can execute real autonomous driving behavior on a mapped environment.
+          </p>
+          <a class="inline-link" href="../README(3).md">Open Source README</a>
+        </div>
+        <aside class="detail-summary">
+          <h3>Core Scope</h3>
+          <ul>
+            <li>Particle-filter localization on a known map</li>
+            <li>Roadmap planning with Dubins feasibility and Lazy A*</li>
+            <li>Path tracking with PID, Pure Pursuit, and MPC</li>
+            <li>End-to-end system integration for closed-loop navigation</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Problem Statement</p>
+          <h2>Driving a car-like robot is a coupled system problem</h2>
+        </div>
+        <p>
+          The MuSHR platform uses Ackermann steering, so it cannot move sideways or rotate in place like
+          a differential-drive robot. That changes the entire autonomy stack: localization must estimate
+          heading accurately, planning must respect curvature constraints, and control must track feasible
+          vehicle motion under noisy sensing and delayed execution.
+        </p>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Architecture</p>
+          <h2>Localization, planning, and control operate as one loop</h2>
+        </div>
+        <pre>Sensors -> Localization -> Planner -> Controller -> Vehicle -> Sensors</pre>
+        <p>
+          The stack answers three questions repeatedly: where the vehicle is, what path it should follow,
+          and what steering plus speed command it should execute right now.
+        </p>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Main Components</p>
+          <h2>Detailed breakdown</h2>
+        </div>
+        <div class="detail-grid">
+          <article class="meta-card">
+            <h3>Localization</h3>
+            <p>
+              Pose estimation is handled with a particle filter that repeats motion prediction, LiDAR-based
+              sensor likelihood update, weight normalization, and low-variance resampling.
+            </p>
+          </article>
+          <article class="meta-card">
+            <h3>Planning</h3>
+            <p>
+              Planning happens in state space `(x, y, theta)`. A roadmap is sampled in free space, connected
+              with Dubins-feasible edges, searched by Lazy A*, and then shortened by path shortcutting.
+            </p>
+          </article>
+          <article class="meta-card">
+            <h3>Control</h3>
+            <p>
+              Three controllers were implemented and compared: PID as a baseline, Pure Pursuit for geometric
+              path tracking, and MPC for predictive control with stronger future reasoning.
+            </p>
+          </article>
+          <article class="meta-card">
+            <h3>Integration</h3>
+            <p>
+              The project emphasizes ROS communication, TF consistency, planner-controller compatibility,
+              and parameter tuning that works in real closed-loop execution rather than only in isolated tests.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Engineering Takeaways</p>
+          <h2>Why this project matters</h2>
+        </div>
+        <ol>
+          <li>It demonstrates system-level autonomy rather than disconnected robotics assignments.</li>
+          <li>It shows comfort working across estimation, planning, control, and execution feedback loops.</li>
+          <li>It reflects practical debugging of real-time constraints, state drift, and path trackability.</li>
+        </ol>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuddyBot Human-Following Robot | Fan Zhang</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">FZ</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#strengths">Strengths</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="detail-page">
+      <section class="detail-hero">
+        <div>
+          <p class="eyebrow">Human-Robot Interaction</p>
+          <h1>TurtleBot3 Human-Following Robot</h1>
+          <p class="hero-text">
+            BuddyBot combines YOLO tracking, MediaPipe pose estimation, action classification, and an
+            FSM-based behavior layer to create a service robot that follows people and reacts to their intent.
+          </p>
+          <a class="inline-link" href="../README(6).md">Open Source README</a>
+        </div>
+        <aside class="detail-summary">
+          <h3>Pipeline</h3>
+          <ul>
+            <li>YOLO detects and tracks the main person</li>
+            <li>MediaPipe extracts 33 body keypoints</li>
+            <li>A trained classifier predicts actions such as wave, reach, sit, stand, and walk</li>
+            <li>An FSM converts those signals into robot motion and platform-height behavior</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">System Goal</p>
+          <h2>Tracking is not enough without interaction logic</h2>
+        </div>
+        <p>
+          The robot is designed for service interaction rather than generic following. It must respond
+          differently when a user waves, walks, sits, reaches out, or stands up again. That makes behavior
+          understanding just as important as person detection.
+        </p>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-grid">
+          <article class="meta-card">
+            <h3>YOLO Tracking</h3>
+            <p>
+              The largest person bounding box is selected as the interaction target. Box center controls
+              heading, and box size is used as a rough distance signal for forward, stop, and retreat logic.
+            </p>
+          </article>
+          <article class="meta-card">
+            <h3>Pose-Based Action Recognition</h3>
+            <p>
+              MediaPipe Pose converts each frame into a 66-dimensional keypoint vector. That feature vector
+              feeds the trained action classifier, reducing sensitivity to background clutter and lighting noise.
+            </p>
+          </article>
+          <article class="meta-card">
+            <h3>FSM Behaviors</h3>
+            <p>
+              States such as `IDLE`, `FOLLOW`, `APPROACH_60`, `APPROACH_30`, `APPROACH_20`, and `RETREAT_60`
+              encode service behavior based on both detected action and current person distance.
+            </p>
+          </article>
+          <article class="meta-card">
+            <h3>Platform Adjustment</h3>
+            <p>
+              A separate controller maps predicted posture to a height-adjustable platform so that a seated
+              or standing user can interact with the robot more comfortably.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Online Runtime</p>
+          <h2>Live execution chain</h2>
+        </div>
+        <pre>camera -> YOLO / MediaPipe -> action classifier -> FSM -> /cmd_vel + platform control</pre>
+        <p>
+          The deployed system is composed of multiple ROS 2 nodes, including a tracker, a human action
+          publisher, the main follower FSM, and the platform height controller.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

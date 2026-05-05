@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structured Reward Modeling for Handover | Fan Zhang</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">FZ</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#strengths">Strengths</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="detail-page">
+      <section class="detail-hero">
+        <div>
+          <p class="eyebrow">Research Direction</p>
+          <h1>Structured Reward Modeling for Complex Human-Robot Handover</h1>
+          <p class="hero-text">
+            This project reframes handover from a pure motion-planning problem into a human-preference-centered
+            reward modeling problem. The goal is to score, explain, and rerank candidate handover behaviors.
+          </p>
+          <a class="inline-link" href="../README(5).md">Open Source README</a>
+        </div>
+        <aside class="detail-summary">
+          <h3>Main Principle</h3>
+          <ul>
+            <li>Safety is a gate, not just another weighted feature</li>
+            <li>Comfort is optimized only after safety clears the threshold</li>
+            <li>The model is designed for candidate reranking, not direct end-to-end control</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Problem Reframing</p>
+          <h2>From pairwise preference to candidate-set selection</h2>
+        </div>
+        <p>
+          The real system is not simply choosing between trajectory A and B. It takes a full interaction
+          context, generates a candidate set of locally feasible handover behaviors, and then uses structured
+          reward to rerank and select the most acceptable option.
+        </p>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-grid">
+          <article class="meta-card">
+            <h3>Inputs</h3>
+            <p>
+              Human state, hand location, body orientation, robot initial state, local environment,
+              obstacle summary, reachable region, task goal, and scenario type.
+            </p>
+          </article>
+          <article class="meta-card">
+            <h3>Candidate Generation</h3>
+            <p>
+              Multiple local candidates are produced in the same context, including classical, learned,
+              hybrid, and safe-fallback behaviors.
+            </p>
+          </article>
+          <article class="meta-card">
+            <h3>Structured Supervision</h3>
+            <p>
+              The project predicts preference-related signals such as reasons, reactions, and better-choice
+              judgments to support interpretable reward formation.
+            </p>
+          </article>
+          <article class="meta-card">
+            <h3>Reward Logic</h3>
+            <p>
+              The current V2 path focuses on two main axes: `safety` and `comfort`, with safety functioning
+              as a veto-style gate rather than an equal additive term.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Core Formula</p>
+          <h2>Safety Gates, Comfort Optimizes</h2>
+        </div>
+        <pre>structured_score = comfort_score - lambda_veto * ReLU(tau_safe - safety_score)^2</pre>
+        <p>
+          This expresses the intended human judgment logic: a handover does not become acceptable simply
+          because it is comfortable if it already feels unsafe.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
